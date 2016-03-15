@@ -19,10 +19,10 @@ describe('Node', function() {
 
 
 describe('SinglyLinkedList', function() {
-  	
+
   //init
   describe('#new SinglyLinkedList()', function () {
-  	var singlyLinkedList = new SinglyLinkedList();	
+  	var singlyLinkedList = new SinglyLinkedList();
     it('should has head with null value', function () {
       assert.equal(null, singlyLinkedList.head);
     });
@@ -39,27 +39,27 @@ describe('SinglyLinkedList', function() {
   //add
   describe('#add()', function() {
   	it('tail and head should be instance of Node and have same value after adding a first element and numberOfValues will be 1', function() {
-		var singlyLinkedList = new SinglyLinkedList();	
+		var singlyLinkedList = new SinglyLinkedList();
 	  	var data = 123;
 	  	singlyLinkedList.add(data);
-		assert.equal(1, singlyLinkedList.numberOfValues);
-		assert.equal(data, singlyLinkedList.head.data);
-		assert.equal(data, singlyLinkedList.tail.data);
-		assert.equal(true, singlyLinkedList.head instanceof Node);
-		assert.equal(true, singlyLinkedList.tail instanceof Node);
-  	});
+  		assert.equal(1, singlyLinkedList.numberOfValues);
+  		assert.equal(data, singlyLinkedList.head.data);
+  		assert.equal(data, singlyLinkedList.tail.data);
+  		assert.equal(true, singlyLinkedList.head instanceof Node);
+  		assert.equal(true, singlyLinkedList.tail instanceof Node);
+    	});
 
   	it('add 3 elements in a list', function() {
-		var singlyLinkedList = new SinglyLinkedList();	
+		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add(1);
 	  	singlyLinkedList.add(2);
 	  	singlyLinkedList.add(3);
-		assert.equal(3, singlyLinkedList.numberOfValues);
-		assert.equal(1, singlyLinkedList.head.data);
-		assert.equal(3, singlyLinkedList.tail.data);
-		assert.equal(true, singlyLinkedList.head instanceof Node);
-		assert.equal(true, singlyLinkedList.tail instanceof Node);
-  	});
+  		assert.equal(3, singlyLinkedList.numberOfValues);
+  		assert.equal(1, singlyLinkedList.head.data);
+  		assert.equal(3, singlyLinkedList.tail.data);
+  		assert.equal(true, singlyLinkedList.head instanceof Node);
+  		assert.equal(true, singlyLinkedList.tail instanceof Node);
+    	});
   });
 
 
@@ -67,41 +67,41 @@ describe('SinglyLinkedList', function() {
   //print
   describe('#print()', function() {
   	it("should return string with space as delimiter", function() {
-  		var singlyLinkedList = new SinglyLinkedList();	
+  		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.add("b");
 	  	singlyLinkedList.add("c");
-		assert.equal("a b c", singlyLinkedList.print());
-	});
+  		assert.equal("a b c", singlyLinkedList.print());
+  	});
   });
-  	
+
   //length
   describe('#length()', function() {
   	it("should return number current list length ", function() {
-  		var singlyLinkedList = new SinglyLinkedList();	
+  		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.add("b");
 	  	singlyLinkedList.add("c");
-		assert.equal(3, singlyLinkedList.numberOfValues);
-	});
+  		assert.equal(3, singlyLinkedList.numberOfValues);
+  	});
   });
 
   //insertAfter
   describe('#insertAfter(data, toNodeData)', function() {
 
   	it('should keep current status after insertAfter a non existing node', function() {
-  		var singlyLinkedList = new SinglyLinkedList();	
+  		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.insertAfter("non", 20);
-		assert.equal(1, singlyLinkedList.numberOfValues);
-		assert.equal("a", singlyLinkedList.head.data);
-		assert.equal("a", singlyLinkedList.tail.data);
-		assert.equal(true, singlyLinkedList.head instanceof Node);
-		assert.equal(true, singlyLinkedList.tail instanceof Node);
+  		assert.equal(1, singlyLinkedList.numberOfValues);
+  		assert.equal("a", singlyLinkedList.head.data);
+  		assert.equal("a", singlyLinkedList.tail.data);
+  		assert.equal(true, singlyLinkedList.head instanceof Node);
+  		assert.equal(true, singlyLinkedList.tail instanceof Node);
   	});
 
   	it('should insert a data after a given existing node', function() {
-  		var singlyLinkedList = new SinglyLinkedList();	
+  		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.add("b");
 	  	singlyLinkedList.add("c");
@@ -112,57 +112,57 @@ describe('SinglyLinkedList', function() {
   	});
 
   	it('should insert multiple node when we have duplicate node data in the list', function() {
-  		var singlyLinkedList = new SinglyLinkedList();	
+  		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.add("b");
 	  	singlyLinkedList.add("c");
 	  	singlyLinkedList.add("b");
 	  	singlyLinkedList.insertAfter("after b", "b");
-		assert.equal(6, singlyLinkedList.numberOfValues);
-		assert.equal("after b", singlyLinkedList.head.next.next.data);
-		assert.equal("after b", singlyLinkedList.tail.data);
+  		assert.equal(6, singlyLinkedList.numberOfValues);
+  		assert.equal("after b", singlyLinkedList.head.next.next.data);
+  		assert.equal("after b", singlyLinkedList.tail.data);
   	});
 
   });
-  
+
   //remove
   describe('#remove(data)', function() {
   	it('should keep current status after remove a non existing node', function() {
-  		var singlyLinkedList = new SinglyLinkedList();	
+  		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.remove("non");
-		assert.equal(1, singlyLinkedList.numberOfValues);
-		assert.equal("a", singlyLinkedList.head.data);
-		assert.equal("a", singlyLinkedList.tail.data);
-		assert.equal(true, singlyLinkedList.head instanceof Node);
-		assert.equal(true, singlyLinkedList.tail instanceof Node);
+  		assert.equal(1, singlyLinkedList.numberOfValues);
+  		assert.equal("a", singlyLinkedList.head.data);
+  		assert.equal("a", singlyLinkedList.tail.data);
+  		assert.equal(true, singlyLinkedList.head instanceof Node);
+  		assert.equal(true, singlyLinkedList.tail instanceof Node);
   	});
 
   	it('should remove a data', function() {
-  		var singlyLinkedList = new SinglyLinkedList();	
+  		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.add("b");
 	  	singlyLinkedList.add("c");
 	  	singlyLinkedList.remove("b");
 	  	singlyLinkedList.remove("c");
-		assert.equal(1, singlyLinkedList.numberOfValues);
-		assert.equal("a", singlyLinkedList.head.data);
-		assert.equal("a", singlyLinkedList.tail.data);
+  		assert.equal(1, singlyLinkedList.numberOfValues);
+  		assert.equal("a", singlyLinkedList.head.data);
+  		assert.equal("a", singlyLinkedList.tail.data);
   	});
 
   	it('should remove all nodes when we have duplicate node data in the list', function() {
-  		var singlyLinkedList = new SinglyLinkedList();	
+  		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.add("b");
 	  	singlyLinkedList.add("c");
 	  	singlyLinkedList.add("b");
 	  	singlyLinkedList.remove("b");
-		assert.equal(2, singlyLinkedList.numberOfValues);
-		assert.equal("a", singlyLinkedList.head.data);
-		assert.equal("c", singlyLinkedList.tail.data);
+  		assert.equal(2, singlyLinkedList.numberOfValues);
+  		assert.equal("a", singlyLinkedList.head.data);
+  		assert.equal("c", singlyLinkedList.tail.data);
   	});
 
   });
-  
+
 
 });
