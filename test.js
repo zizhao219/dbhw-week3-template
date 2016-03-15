@@ -1,5 +1,6 @@
 var assert = require('assert');
-var testFile = require('./single-linked-list.js');
+// var testFile = require('./single-linked-list.js');
+var testFile = require('./single-linked-answer.js');
 
 var SinglyLinkedList = testFile.SinglyLinkedList;
 var Node = testFile.Node;
@@ -66,7 +67,12 @@ describe('SinglyLinkedList', function() {
 
   //print
   describe('#print()', function() {
-  	it("should return string with space as delimiter", function() {
+    it("should return a empty string after initial a list", function() {
+  		var singlyLinkedList = new SinglyLinkedList();
+  		assert.equal("", singlyLinkedList.print());
+  	});
+
+    it("should return string with space as delimiter", function() {
   		var singlyLinkedList = new SinglyLinkedList();
 	  	singlyLinkedList.add("a");
 	  	singlyLinkedList.add("b");
@@ -148,6 +154,28 @@ describe('SinglyLinkedList', function() {
   		assert.equal(1, singlyLinkedList.numberOfValues);
   		assert.equal("a", singlyLinkedList.head.data);
   		assert.equal("a", singlyLinkedList.tail.data);
+  	});
+
+    it('when data is head', function() {
+  		var singlyLinkedList = new SinglyLinkedList();
+	  	singlyLinkedList.add("a");
+	  	singlyLinkedList.add("b");
+	  	singlyLinkedList.add("c");
+	  	singlyLinkedList.remove("a");
+  		assert.equal(2, singlyLinkedList.numberOfValues);
+  		assert.equal("b", singlyLinkedList.head.data);
+  		assert.equal("c", singlyLinkedList.tail.data);
+  	});
+
+    it('when data is tail', function() {
+  		var singlyLinkedList = new SinglyLinkedList();
+	  	singlyLinkedList.add("a");
+	  	singlyLinkedList.add("b");
+	  	singlyLinkedList.add("c");
+	  	singlyLinkedList.remove("c");
+  		assert.equal(2, singlyLinkedList.numberOfValues);
+  		assert.equal("a", singlyLinkedList.head.data);
+  		assert.equal("b", singlyLinkedList.tail.data);
   	});
 
   	it('should remove all nodes when we have duplicate node data in the list', function() {
