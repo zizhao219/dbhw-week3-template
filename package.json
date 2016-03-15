@@ -1,0 +1,14 @@
+{
+  "name": "dbhw-week3-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "single-linked-list.js",
+  "scripts": {
+    "test": "mocha ./test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^2.4.5"
+  }
+}
