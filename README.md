@@ -1,1 +1,5 @@
-# dbhw-week3-templage
+# dbhw-week3-template
+----
+## Getting Start
+- npm install
+- npm test
