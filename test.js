@@ -1,6 +1,6 @@
 var assert = require('assert');
-// var testFile = require('./single-linked-list.js');
-var testFile = require('./single-linked-answer.js');
+var testFile = require('./single-linked-list.js');
+// var testFile = require('./single-linked-answer.js');
 
 var SinglyLinkedList = testFile.SinglyLinkedList;
 var Node = testFile.Node;
